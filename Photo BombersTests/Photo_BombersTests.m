@@ -7,8 +7,12 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "FBPhotosViewController.h"
+#import "FBPhotoCell.h"
 
 @interface Photo_BombersTests : XCTestCase
+@property (nonatomic) FBPhotosViewController *pvc;
+@property (nonatomic) FBPhotoCell *photoCell;
 
 @end
 
@@ -18,17 +22,32 @@
 {
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
+    self.pvc = [[FBPhotosViewController alloc] init];
+    self.photoCell = [[FBPhotoCell alloc] init];
 }
 
 - (void)tearDown
 {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
+    self.pvc = nil;
+    
     [super tearDown];
 }
 
-- (void)testExample
+#pragma mark - FBPhotosViewControllerTest
+
+- (void)testFBPhotosViewControllerNotNil
 {
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+    XCTAssertNotNil(self.pvc, @"The FBPhotosViewController was nil");
 }
+
+
+
+#pragma mark - FBPhotoCell
+- (void)testFBPhotoCellClass
+{
+    XCTAssertTrue([self.photoCell isKindOfClass:[UICollectionViewCell class]], @"The photo cell's class was %@",
+                  [self.photoCell class]);
+}
+
 
 @end

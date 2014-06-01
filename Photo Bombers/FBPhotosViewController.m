@@ -16,7 +16,7 @@
 @interface FBPhotosViewController () <UIViewControllerTransitioningDelegate>
 
 @property (nonatomic) NSString *accessToken;
-@property (nonatomic) NSArray *photos;
+@property (nonatomic) NSArray *photos;  
 
 @end
 
