@@ -49,5 +49,9 @@
                   [self.photoCell class]);
 }
 
+- (void)testFBPhotoCellNil
+{
+    XCTAssertNil(self.photoCell, @"Photo cell was not nil");
+}
 
 @end
